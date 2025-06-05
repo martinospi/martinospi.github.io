@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9;
+  color: #111;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #111;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+section {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #111;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #000;
+  outline: none;
+}
+
+button {
+  background-color: #111;
+  color: white;
+  font-weight: 600;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+.tarea {
+  background-color: #fafafa;
+  padding: 1.5rem 1.2rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #111;
+  border-radius: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+.tarea h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.tarea p {
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+  color: #444;
+}
+
+.tarea button {
+  width: auto;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  background-color: #111;
+}
+
+.tarea button:hover {
+  background-color: #333;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 3rem;
+}
