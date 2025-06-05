@@ -11,8 +11,6 @@ function validacion(tarea, desc) {
 
 // Funcion Agregar Tarea (+ boton editar, + boton eliminar)
 document.querySelector('#agregarBtn').addEventListener('click', function (event) {
-    event.preventDefault()
-
     const tareaInput= document.getElementById('tarea')
     const descInput= document.getElementById('desc')
     const tarea= tareaInput.value.trim()
@@ -32,7 +30,7 @@ document.querySelector('#agregarBtn').addEventListener('click', function (event)
 
 // Funcion Eliminar Tarea
 function eliminarTarea(index) {
-    listaMascotas.splice(index, 1)
+    listadoTareas.splice(index, 1)
     mostrarLista()
 }
 
@@ -80,29 +78,26 @@ function editarTarea(index) {
 
 // Funcion Mostrar Lista (para actualizar bien las tareas)
 function mostrarLista() {
-    let lista= document.querySelector('#listaTareas')
+    const lista= document.querySelector('#listaTareas')
     lista.innerHTML= ''
       
     for (let i= 0; i < listadoTareas.length; i++) {
         let task= listadoTareas[i]
-        let li= document.createElement('li')
-        li.innerHTML= `<b>Tarea:</b> ${task.tarea}, 
-        <b>Detalles:</b> ${task.desc}  `
+        let div= document.createElement('div')
+        div.innerHTML= `<p>Tarea:</p> ${task.tarea}$ 
+        <p>Detalles:</p> ${task.desc}$
+        `
         
         const btnEditar= document.createElement('button')
         btnEditar.textContent= 'Editar'
-        btnEditar.addEventListener('click', () => {
-          editarTarea(i)
-        })
+        btnEditar.addEventListener('click', () => editarTarea(i))
         
         const btnEliminar= document.createElement('button')
         btnEliminar.textContent= 'Eliminar'
-        btnEliminar.addEventListener('click', () => {
-          eliminarTarea(i)
-        })
+        btnEliminar.addEventListener('click', () => eliminarTarea(i))
         
-        li.appendChild(btnEditar)
-        li.appendChild(btnEliminar)
-        lista.appendChild(li)
+        div.appendChild(btnEditar)
+        div.appendChild(btnEliminar)
+        lista.appendChild(div)
     }
 }
