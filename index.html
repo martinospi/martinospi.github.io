@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum - Productivity App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Momentum</h1>
+    </header>
+
+    <main> 
+        <!--Agregar Tareas-->
+        <section class="agregarTareas">
+            <h2>Agregar nueva tarea</h2>
+            <form id="agregar">
+                <input type="text" id="tarea" placeholder="Tarea">
+                <textarea id="desc" placeholder="Descripción"></textarea>
+                <button type="button" id="agregarBtn">Agregar</button>
+            </form>
+        </section>
+
+        <!--Mostrar Tareas-->
+        <section class="misTareas">
+            <h2>Mis Tareas</h2>
+            <div id="listaTareas"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p><b>© 2025 - App hecha por Martin Ospital</b></p>
+    </footer>
+
+    <script src= "script.js"></script>
+</body>
+</html>
