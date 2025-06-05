@@ -84,9 +84,7 @@ function mostrarLista() {
     for (let i= 0; i < listadoTareas.length; i++) {
         let task= listadoTareas[i]
         let div= document.createElement('div')
-        div.innerHTML= `<p>Tarea:</p> ${task.tarea}$ 
-        <p>Detalles:</p> ${task.desc}$
-        `
+        div.innerHTML= div.innerHTML = `<h3>Tarea: ${task.tarea}</h3><p><i>Desc: ${task.desc}</i></p>`
         
         const btnEditar= document.createElement('button')
         btnEditar.textContent= 'Editar'
