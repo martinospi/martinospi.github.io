@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momentum - Productivity App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -15,23 +14,34 @@
     <main>
       <section class="formulario">
         <h2>Agregar nueva tarea</h2>
-        <form id="agregar">
-          <input type="text" id="tarea" placeholder="Tarea">
-          <textarea id="desc" placeholder="Descripción"></textarea>
-          <button id="agregarBtn" type="button">Agregar</button>
-        </form>
+          <form id="agregar">
+              <input type="text" id="tarea" placeholder="Tarea">
+              <textarea id="desc" placeholder="Descripción (opcional)"></textarea>
+              <button id="agregarBtn" type="submit">Agregar</button>
+          </form>
+      </section>
+        
+      <!-- Separacion por pestañas -->
+      <div class="nav-tabs">
+          <button class="tab-btn active" data-tab="pendientes">Pendientes</button>
+          <button class="tab-btn" data-tab="completadas">Completadas</button>
+      </div>
+
+      <!-- Contentedores pestañas -->
+      <section class="misTareas tab-content active" id="pendientes">
+          <h2>Mis Tareas</h2>
+          <div id="listaTareas"></div>
       </section>
 
-      <section class="misTareas">
-        <h2>Mis Tareas</h2>
-        <div id="listaTareas"></div>
+        
+      <section class="tareasCompletadas tab-content" id="completadas">
+          <h2>Tareas Completadas</h2>
+          <div id="listaTareasCompletadas"></div>
       </section>
     </main>
 
     <footer>
       <p>© 2025 Momentum - App de Productividad</p>
     </footer>
-
-    <script src= "script.js"></script>
 </body>
 </html>

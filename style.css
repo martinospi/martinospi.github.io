@@ -6,21 +6,10 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #111;
+  background-color: #f4f5f7;
+  color: #172b4d;
   padding: 2rem;
   line-height: 1.6;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-header h1 {
-  font-size: 2.8rem;
-  font-weight: 600;
-  color: #111;
 }
 
 main {
@@ -28,90 +17,158 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.5rem;
+}
+
+h1, h2 {
+  font-weight: 700;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 2.8rem;
 }
 
 section {
   background-color: #ffffff;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
 }
 
 h2 {
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
-  color: #111;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #dfe1e6;
+  padding-bottom: 0.75rem;
 }
 
-input,
-textarea,
-button {
+.nav-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.tab-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #dfe1e6;
+  background-color: #f4f5f7;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.tab-btn.active {
+  background-color: #0052cc;
+  color: white;
+  border-color: #0052cc;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+input, textarea, button {
   width: 100%;
   padding: 0.9rem 1rem;
   margin-bottom: 1rem;
   font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  border-radius: 6px;
+  border: 1px solid #dfe1e6;
   font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input:focus,
-textarea:focus {
-  border-color: #000;
+input:focus, textarea:focus {
+  border-color: #0052cc;
   outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
 }
 
-button {
-  background-color: #111;
+#agregarBtn, #guardarCambiosBtn {
+  background-color: #0052cc;
   color: white;
   font-weight: 600;
   border: none;
-  transition: background 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #333;
+#agregarBtn:hover, #guardarCambiosBtn:hover {
+  background-color: #0041a3;
 }
 
-.tarea {
+/* Tarjeta de las tareas */
+.task-card {
   background-color: #fafafa;
   padding: 1.5rem 1.2rem;
-  margin-bottom: 2rem;
-  border-left: 4px solid #111;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #0052cc;
   border-radius: 6px;
   border-bottom: 1px solid #eee;
 }
-
-.tarea h3 {
-  font-size: 1.1rem;
+.task-card h3 {
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
-
-.tarea p {
+.task-card p {
   font-size: 0.95rem;
   margin-bottom: 1.2rem;
-  color: #444;
+  color: #5e6c84;
 }
-
-.tarea button {
+.task-card .actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.task-card .actions button {
   width: auto;
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
-  margin-right: 0.5rem;
-  background-color: #111;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  background-color: #172b4d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.task-card .actions button:hover {
+  background-color: #344563;
 }
 
-.tarea button:hover {
-  background-color: #333;
+/* Botones específicos */
+.btn-completar { background-color: #00875a !important; }
+.btn-completar:hover { background-color: #006644 !important; }
+.btn-restaurar { background-color: #ffab00 !important; color: #172b4d !important; }
+.btn-restaurar:hover { background-color: #ffc400 !important; }
+.btn-eliminar { background-color: #de350b !important; }
+.btn-eliminar:hover { background-color: #bf2600 !important; }
+
+/* Tareas completadas */
+.task-card.completada {
+  border-left-color: #00875a;
+  opacity: 0.8;
+}
+.task-card.completada h3, .task-card.completada p {
+  text-decoration: line-through;
+}
+.completion-date {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #5e6c84;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 
 footer {
   text-align: center;
   font-size: 0.9rem;
   color: #777;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
