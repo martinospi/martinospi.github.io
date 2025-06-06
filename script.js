@@ -1,3 +1,10 @@
+/* A Hacer: 
+- 'ninguna tarea pendiente ni completada' si no las hay
+- mejorar interfaz, tema plantas?, verde oscuro
+- guardar tareas localmente
+- footer decorado, algo en la parte de abajo?
+*/
+
 // Variables y Elementos
 const form = document.getElementById('agregar')
 const tareaInput = document.getElementById('tarea')

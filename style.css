@@ -7,7 +7,7 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f4f5f7;
-  color: #172b4d;
+  color: #183512;
   padding: 2rem;
   line-height: 1.6;
 }
@@ -34,9 +34,12 @@ header h1 {
 }
 
 section {
-  background-color: #ffffff;
+  background-image: url('https://i.pinimg.com/736x/57/9f/85/579f858b583a95813c6af6298f045622.jpg');
+  background-size: cover;
+  background-position: center;
   padding: 2rem;
   border-radius: 12px;
+  border: 1px solid #d4d4d4; 
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
 }
 
@@ -52,6 +55,7 @@ h2 {
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
+
 .tab-btn {
   padding: 0.5rem 1rem;
   border: 1px solid #dfe1e6;
@@ -62,14 +66,17 @@ h2 {
   font-weight: 600;
   transition: all 0.2s ease;
 }
+
 .tab-btn.active {
-  background-color: #0052cc;
+  background-color: #2E7D32;
   color: white;
-  border-color: #0052cc;
+  border-color: #2E7D32;
 }
+
 .tab-content {
   display: none;
 }
+
 .tab-content.active {
   display: block;
 }
@@ -86,13 +93,13 @@ input, textarea, button {
 }
 
 input:focus, textarea:focus {
-  border-color: #0052cc;
+  border-color: #2E7D32;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
 }
 
 #agregarBtn, #guardarCambiosBtn {
-  background-color: #0052cc;
+  background-color: #2E7D32;
   color: white;
   font-weight: 600;
   border: none;
@@ -101,15 +108,16 @@ input:focus, textarea:focus {
 }
 
 #agregarBtn:hover, #guardarCambiosBtn:hover {
-  background-color: #0041a3;
+  background-color: #1B5E20;
 }
 
 /* Tarjeta de las tareas */
 .task-card {
-  background-color: #fafafa;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(2px);
   padding: 1.5rem 1.2rem;
   margin-bottom: 1.5rem;
-  border-left: 4px solid #0052cc;
+  border-left: 4px solid #2E7D32; 
   border-radius: 6px;
   border-bottom: 1px solid #eee;
 }
