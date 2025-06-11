@@ -38,6 +38,13 @@ function mostrarListas() {
   listaTareasDiv.innerHTML = ''
   listaTareasCompletadasDiv.innerHTML = ''
 
+  if (listadoTareas.filter(t => t.status === 'pendiente').length === 0) {
+    listaTareasDiv.innerHTML = '<p>¡Genial! No tenés tareas pendientes.</p>'
+  }
+  if (listadoTareas.filter(t => t.status === 'completada').length === 0) {
+    listaTareasCompletadasDiv.innerHTML = '<p>Aún no has completado ninguna tarea.</p>'
+  }
+
   for (let i = 0; i < listadoTareas.length; i++) {
     const task = listadoTareas[i]
 
@@ -252,3 +259,19 @@ tabCompletadas.addEventListener('click', () => {
 
 // Para mostrar tareas del LocalStorage apenas carga la página
 mostrarListas()
+
+const landingPage = document.getElementById('landing-page')
+const appContainer = document.getElementById('app-container')
+const ctaButtons = document.querySelectorAll('.js-cta-to-app')
+
+function mostrarAplicacion() {
+    landingPage.classList.add('hidden')
+    appContainer.classList.remove('hidden')
+}
+
+ctaButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.preventDefault()
+        mostrarAplicacion()
+    })
+})

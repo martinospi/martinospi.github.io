@@ -3,48 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momentum - Productivity App</title>
+    <title>Momentum - Tu App de Productividad</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Momentum</h1>
+  <div id="landing-page">
+    <header class="landing-header">
+        <div class="logo">Momentum</div>
+        <nav>
+            <a href="#" class="cta-button js-cta-to-app">Ir a la App</a>
+        </nav>
     </header>
 
     <main>
-      <section class="formulario">
+        <section class="hero-section">
+            <h1>Recuperá tu enfoque, un día a la vez</h1>
+            <p>Momentum no es solo una lista de tareas. Es un espacio tranquilo para organizar tus ideas y transformar la intención en acción. Simplificá tu vida y encontrá la claridad que necesitas para alcanzar tus metas.</p>
+            <a href="#" class="cta-button cta-button-main js-cta-to-app">Empezá a organizarte gratis</a>
+        </section>
+
+        <section class="features-section">
+            <h2>¿Por qué Momentum?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <h3>Simple y sin distracciones</h3>
+                    <p>Una interfaz limpia y minimalista, para que uno pueda concentrarse en lo importante</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-list-check"></i>
+                    <h3>Control total sobre tus tareas</h3>
+                    <p>Creá, editá, completá y eliminá tus pendientes de forma intuitiva.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <h3>Visualizá tu progreso</h3>
+                    <p>Hacemos un seguimiento de tus logros para ver tus avances y mantenerte motivado</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="landing-footer">
+        <p>© 2025 Momentum - Creado para ser simple y poderoso</p>
+    </footer>
+</div>
+
+    <div id="app-container" class="hidden">
+        <header>
+            <h1>Momentum: Tu app para enfocarte en lo importante</h1>
+        </header>
+
+    <main>
+    <section class="formulario">
         <h2>Agregar nueva tarea</h2>
-          <form id="agregar">
-              <input type="text" id="tarea" placeholder="Tarea">
-              <textarea id="desc" placeholder="Descripción (opcional)"></textarea>
-              <button id="agregarBtn" type="submit">Agregar</button>
-          </form>
-      </section>
-        
-      <!-- Separacion por pestañas -->
-      <div class="nav-tabs">
-          <button class="tab-btn active" data-tab="pendientes">Pendientes</button>
-          <button class="tab-btn" data-tab="completadas">Completadas</button>
-      </div>
+        <form id="agregar">
+            <input type="text" id="tarea" placeholder="Tarea">
+            <textarea id="desc" placeholder="Descripción (opcional)"></textarea>
+            <button id="agregarBtn" type="submit">Agregar</button>
+        </form>
+    </section>
+    
+    <!-- Separacion por pestañas -->
+    <div class="nav-tabs">
+        <button class="tab-btn active" data-tab="pendientes">Pendientes</button>
+        <button class="tab-btn" data-tab="completadas">Completadas</button>
+    </div>
 
-      <!-- Contentedores pestañas -->
-      <section class="misTareas tab-content active" id="pendientes">
-          <h2>Mis Tareas</h2>
-          <div id="listaTareas"></div>
-      </section>
+    <!-- Contentedores pestañas -->
+    <section class="misTareas tab-content active" id="pendientes">
+        <h2>Mis Tareas</h2>
+        <div id="listaTareas"></div>
+    </section>
 
-        
-      <section class="tareasCompletadas tab-content" id="completadas">
-          <h2>Tareas Completadas</h2>
-          <div id="listaTareasCompletadas"></div>
-      </section>
+    <section class="tareasCompletadas tab-content" id="completadas">
+        <h2>Tareas Completadas</h2>
+        <div id="listaTareasCompletadas"></div>
+    </section>
     </main>
 
     <footer>
-      <p>© 2025 Momentum - App de Productividad</p>
+    <p>© 2025 Momentum - App de Productividad</p>
     </footer>
-
+</div>
     <script src="script.js"></script>
 </body>
 </html>
