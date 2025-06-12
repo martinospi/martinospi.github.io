@@ -50,7 +50,12 @@ function mostrarListas() {
       // Tarea Pendiente
       const div = document.createElement('div')
       div.className = 'task-card'
-      div.innerHTML = `<h3>${task.tarea}</h3><p>${task.desc}</p>`
+     
+      let innerHTML = `<h3>${task.tarea}</h3>`;
+      if (task.desc) { // Si hay descripción, se añade el párrafo.
+        innerHTML += `<p>${task.desc}</p>`;
+      }
+      div.innerHTML = innerHTML;
 
       const actionsDiv = document.createElement('div')
       actionsDiv.className = 'actions'
@@ -92,10 +97,13 @@ function mostrarListas() {
 
       // Formateo la fecha de forma sencilla
       const fecha = new Date(task.fechaCompletada).toLocaleDateString('es-ES')
-      div.innerHTML = `
-                    <h3>${task.tarea}</h3>
-                    <p>${task.desc}</p>
-                    <p class="completion-date">Completada el: ${fecha}</p>`
+
+      let innerHTML = `<h3>${task.tarea}</h3>`;
+      if (task.desc) {
+        innerHTML += `<p>${task.desc}</p>`;
+      }
+      innerHTML += `<p class="completion-date">Completada el: ${fecha}</p>`;
+      div.innerHTML = innerHTML;
 
       const actionsDiv = document.createElement('div')
       actionsDiv.className = 'actions'
@@ -207,7 +215,7 @@ function editarTarea(id) {
       btnGuardar.remove()
       agregarBtn.style.display = 'block'
 
-      guardarTareas(); // CAMBIO: Guardamos el estado
+      guardarTareas()
       mostrarListas()
     })
 
