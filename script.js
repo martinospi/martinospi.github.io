@@ -1,10 +1,3 @@
-/* A Hacer: 
-- 'ninguna tarea pendiente ni completada' si no las hay
-- mejorar interfaz, tema plantas?, verde oscuro
-- guardar tareas localmente
-- footer decorado, algo en la parte de abajo?
-*/
-
 // Variables y Elementos
 const form = document.getElementById('agregar')
 const tareaInput = document.getElementById('tarea')
@@ -19,10 +12,15 @@ const tabCompletadas = document.querySelector('.tab-btn[data-tab="completadas"]'
 const seccionPendientes = document.getElementById('pendientes')
 const seccionCompletadas = document.getElementById('completadas')
 
-// Estado aplicación
-let listadoTareas = []
+// Estado aplicación (cargo las tareas desde localstorage, si no hay, array vacío)
+let listadoTareas = JSON.parse(localStorage.getItem('listadoTareasMomentum')) || []
 
 // FUNCIONES
+
+// Función para guardar en localstorage
+function guardarTareas() {
+  localStorage.setItem('listadoTareasMomentum', JSON.stringify(listadoTareas))
+}
 
 // Función Validación
 function validacion(tarea) {
@@ -92,7 +90,7 @@ function mostrarListas() {
       const div = document.createElement('div')
       div.className = 'task-card completada'
 
-      // Formateamos la fecha de forma sencilla
+      // Formateo la fecha de forma sencilla
       const fecha = new Date(task.fechaCompletada).toLocaleDateString('es-ES')
       div.innerHTML = `
                     <h3>${task.tarea}</h3>
@@ -135,6 +133,7 @@ function completarTarea(id) {
       break; // Se termina el loop cuando la encuentro
     }
   }
+  guardarTareas()
   mostrarListas()
 }
 
@@ -147,6 +146,7 @@ function restaurarTarea(id) {
       break
     }
   }
+  guardarTareas()
   mostrarListas()
 }
 
@@ -163,7 +163,8 @@ function eliminarTarea(id) {
     }
   }
   listadoTareas = nuevoListado;
-  mostrarListas();
+  guardarTareas()
+  mostrarListas()
 }
 
 // Función Editar
@@ -206,6 +207,7 @@ function editarTarea(id) {
       btnGuardar.remove()
       agregarBtn.style.display = 'block'
 
+      guardarTareas(); // CAMBIO: Guardamos el estado
       mostrarListas()
     })
 
@@ -239,7 +241,8 @@ form.addEventListener('submit', function(event) {
   // Limpio el formulario
   form.reset()
 
-  mostrarListas();
+  guardarTareas()
+  mostrarListas()
 });
 
 // Listeners para las pestañas de navegación
@@ -257,16 +260,23 @@ tabCompletadas.addEventListener('click', () => {
   tabCompletadas.classList.add('active')
 });
 
-// Para mostrar tareas del LocalStorage apenas carga la página
 mostrarListas()
 
+// NAVEGACIÓN ENTRE LANDING Y APP
 const landingPage = document.getElementById('landing-page')
 const appContainer = document.getElementById('app-container')
 const ctaButtons = document.querySelectorAll('.js-cta-to-app')
+const backButton = document.querySelector('.js-back-to-landing')
 
 function mostrarAplicacion() {
     landingPage.classList.add('hidden')
     appContainer.classList.remove('hidden')
+}
+
+// Función para mostrar la landing
+function mostrarLanding() {
+    appContainer.classList.add('hidden')
+    landingPage.classList.remove('hidden')
 }
 
 ctaButtons.forEach(button => {
@@ -275,3 +285,9 @@ ctaButtons.forEach(button => {
         mostrarAplicacion()
     })
 })
+
+// Listener para el botón de Volver
+backButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    mostrarLanding();
+});
